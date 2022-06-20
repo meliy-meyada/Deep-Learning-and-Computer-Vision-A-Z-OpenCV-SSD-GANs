@@ -97,7 +97,7 @@ class D(nn.Module):
         
     def forward(self, input):
         output = self.main(input)
-        return output
+        return output.view(-1)
         
     
     
