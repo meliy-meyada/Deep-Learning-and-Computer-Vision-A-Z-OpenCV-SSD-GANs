@@ -21,4 +21,10 @@ import torchvision.utils as vutils
 from torch.autograd import Variable
 
 
+#Setting some hyperparameters
+batchSize = 64
+imageSize = 64
+
+
+
 
