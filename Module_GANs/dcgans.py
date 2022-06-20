@@ -129,6 +129,10 @@ for epoch in range(25):
         errD_fake = criterion(output, target)
         
         # Backpropagating the total error
+        errD = errD_real + errD_fake
+        errD.backward()
+        optimizerD.step()
+        
         # 2nd Step: Updating the weights of the neural network of the generator
         # 3rd Step: Printing the losses and saving the real images and the generated images of the minibatch every 100 steps
         
