@@ -26,7 +26,7 @@ batchSize = 64
 imageSize = 64
 
 # Create the transformations
-transform = transforms.Compose([transforms.Scale(imageSize), transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),])
+transform = transforms.Compose([transforms.Resize(imageSize), transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),])
 
 # Loading the dataset
 dataset = dset.CIFAR10(root = './data', download = True, transform = transform)
@@ -142,21 +142,11 @@ for epoch in range(25):
         optimizerG.step()
         
         # 3rd Step: Printing the losses and saving the real images and the generated images of the minibatch every 100 steps
+        print('[%d/%d][%d/%d] Loss_D: %.4f Loss_G: %.4f' % (epoch, 25, i, len(dataloader), errD.data, errG.data))
+        if i % 100 == 0:
+            vutils.save_image(real, '%s/real_samples.png' % "./results", normalize = True)
+            fake = netG(noise)
+            vutils.save_image(fake.data, '%s/fake_samples_epoch_%03d.png' % ("./results", epoch), normalize = True)
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    
-    
-    
     
         
