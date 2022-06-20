@@ -30,4 +30,4 @@ transform = transforms.Compose([transforms.Scale(imageSize), transforms.ToTensor
 
 # Loading the dataset
 dataset = dset.CIFAR10(root = './data', download = True, transform = transform)
-
+dataloader = torch.utils.data.DataLoader(dataset, batch_size = batchSize, shuffle = True, num_workers = 2)
