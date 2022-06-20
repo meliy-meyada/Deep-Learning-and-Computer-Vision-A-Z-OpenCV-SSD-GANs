@@ -134,6 +134,13 @@ for epoch in range(25):
         optimizerD.step()
         
         # 2nd Step: Updating the weights of the neural network of the generator
+        netG.zero_grad()
+        target =  Variable(torch.ones(input.size()[0]))
+        output = netD(fake)
+        errG = criterion(output, target)
+        errG.backward()
+        optimizerG.step()
+        
         # 3rd Step: Printing the losses and saving the real images and the generated images of the minibatch every 100 steps
         
         
