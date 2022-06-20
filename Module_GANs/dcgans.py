@@ -95,7 +95,9 @@ class D(nn.Module):
             nn.Sigmoid()
             )
         
-        
+    def forward(self, input):
+        output = self.main(input)
+        return output
         
     
     
