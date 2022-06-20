@@ -42,3 +42,19 @@ def weights_init(m):
         m.weight.data.normal_(1.0, 0.02)
         m.bias.data.fill_(0)
         
+        
+# Defining the generators
+class G(nn.Module):
+    
+    def __init__(self):
+        super(G, self).__init__()
+        self.main = nn.Sequential(
+            )
+    
+    
+    
+    
+    
+    
+    
+        
