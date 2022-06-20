@@ -28,5 +28,6 @@ imageSize = 64
 # Create the transformations
 transform = transforms.Compose([transforms.Scale(imageSize), transforms.ToTensor(), transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),])
 
-
+# Loading the dataset
+dataset = dset.CIFAR10(root = './data', download = True, transform = transform)
 
